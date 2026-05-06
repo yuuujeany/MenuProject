@@ -1,5 +1,6 @@
 package service;
 
+import exception.MenuException;
 import vo.MenuVO;
 
 import java.io.BufferedReader;
@@ -32,7 +33,7 @@ public class MenuService {
 //                System.out.println(str);
                 String [] arr = str.split(",");
                 list.add(new MenuVO(arr[0], arr[1],
-                        Integer.parseInt(arr[2]), arr[3], Boolean.parseBoolean(arr[4])));
+                        Integer.parseInt(arr[2]), arr[3]));
             }
 
             System.out.println("메뉴 정보 로드 완료");
@@ -48,5 +49,16 @@ public class MenuService {
         if(instance == null)
             instance = new MenuService();
         return  instance;
+    }
+
+    public void checkDuplicateMenuId(String menuId) throws MenuException {
+       int idx = list.indexOf(new MenuVO(menuId,null,0,null));
+       if(idx != -1)
+           throw new MenuException("메뉴번호가 중복되었습니다.");
+
+    }
+
+    public boolean appendMenu(MenuVO menuVO) {
+        return list.add(menuVO);
     }
 }
