@@ -3,13 +3,13 @@ package vo;
 import java.util.Objects;
 
 public class MenuVO {
-        private int menuId;        // 메뉴 번호
+        private String menuId;        // 메뉴 번호
         private String name;       // 메뉴명
         private int price;         // 가격
         private String category;   // 카테고리 (Main, Side, Drink 등)
         private boolean isSoldOut; // 판매 여부 (true: 판매중, false: 품절)
 
-    public MenuVO(int menuId, String name, int price, String category, boolean isSoldOut) {
+    public MenuVO(String menuId, String name, int price, String category, boolean isSoldOut) {
         this.menuId = menuId;
         this.name = name;
         this.price = price;
@@ -17,11 +17,11 @@ public class MenuVO {
         this.isSoldOut = isSoldOut;
     }
 
-    public int getMenuId() {
+    public String getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(int menuId) {
+    public void setMenuId(String menuId) {
         this.menuId = menuId;
     }
 

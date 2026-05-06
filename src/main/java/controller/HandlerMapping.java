@@ -12,6 +12,9 @@ public class HandlerMapping {
     public Controller createController(int no){
         Controller controller = null;
         switch (no){
+            case 1:
+                controller = new AppendController();
+                break;
             case 5:
                 controller = new  PrintAllController();
                 break;

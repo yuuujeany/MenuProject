@@ -31,8 +31,8 @@ public class MenuService {
                 if(str == null) break;
 //                System.out.println(str);
                 String [] arr = str.split(",");
-                list.add(new MenuVO(Integer.parseInt(arr[0]), arr[1],
-                        Integer.parseInt(arr[2]), arr[3].trim(), Boolean.parseBoolean(arr[4])));
+                list.add(new MenuVO(arr[0], arr[1],
+                        Integer.parseInt(arr[2]), arr[3], Boolean.parseBoolean(arr[4])));
             }
 
             System.out.println("메뉴 정보 로드 완료");
