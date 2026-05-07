@@ -16,8 +16,7 @@ public class MenuMain {
                 System.out.println("1. 신규 메뉴 등록");
                 System.out.println("2. 기존 메뉴 삭제");
                 System.out.println("3. 기존 메뉴 수정");
-                System.out.println("4. 카테고리별 조회");
-                System.out.println("5. 전체 메뉴 조회");
+                System.out.println("4. 전체 메뉴 조회");
                 System.out.println("0. 프로그램 종료");
                 System.out.print("원하시는 메뉴번호를 입력하세요 : ");
 

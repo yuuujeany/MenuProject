@@ -21,7 +21,7 @@ public class HandlerMapping {
             case 3:
                 controller =new UpdateController();
                 break;
-            case 5:
+            case 4:
                 controller = new  PrintAllController();
                 break;
 
