@@ -29,8 +29,11 @@ public class MenuService {
                 if(str == null) break;
 //                System.out.println(str);
                 String [] arr = str.split(",");
-                list.add(new MenuVO(arr[0], arr[1],
-                        Integer.parseInt(arr[2]), arr[3]));
+                list.add(new MenuVO(arr[0].trim(),
+                        arr[1].trim(),
+                        Integer.parseInt(arr[2].trim()),
+                        arr[3].trim(),
+                        Boolean.parseBoolean(arr[4].trim())));
             }
 
             System.out.println("메뉴 정보 로드 완료");
@@ -59,7 +62,7 @@ public class MenuService {
     }
 
     public void checkDuplicateMenuId(String menuId) throws MenuException {
-       int idx = list.indexOf(new MenuVO(menuId,null,0,null));
+       int idx = list.indexOf(new MenuVO(menuId,null,0,null,false));
        if(idx != -1)
            throw new MenuException("메뉴번호가 중복되었습니다.");
 
@@ -70,7 +73,13 @@ public class MenuService {
     }
 
     public void deleteMenu(String menuId) throws MenuException {
-        if(!list.remove(new MenuVO(menuId,null,0,null)))
+        if(!list.remove(new MenuVO(menuId,null,0,null,false)))
             throw new MenuException("삭제할 메뉴 정보가 없습니다.");
+    }
+
+    public MenuVO searchMenu(String menuId)throws MenuException{
+        int idx = list.indexOf(new MenuVO(menuId,null,0,null,false));
+        if(idx == -1)throw new MenuException("해당 메뉴 정보가 없습니다.");
+        return list.get(idx);
     }
 }
