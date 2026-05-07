@@ -25,7 +25,7 @@ public class AppendController implements Controller {
             System.out.println("등록할 판매 상태 (1.판매중 / 2.품절) : ");
             int choice = sc.nextInt();
             sc.nextLine();
-            String isSoldOut = (choice == 1) ? "판매중" : "품절";
+            boolean isSoldOut = (choice == 1);
             boolean flag = MenuService.getInstance().appendMenu(
                     new MenuVO(menuId, name, price, category, isSoldOut)
             );

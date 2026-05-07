@@ -22,7 +22,7 @@ public class UpdateController implements Controller {
             System.out.println("수정할 카테고리 : ");
             vo.setCategory(sc.nextLine());
             System.out.println("수정할 품절 유무 (판매중/품절) : ");
-            vo.setSoldOut(sc.nextLine());
+            vo.setSoldOut(Boolean.parseBoolean(sc.nextLine()));
 
             System.out.println("기존 메뉴 수정 성공");
         } catch (MenuException m) {

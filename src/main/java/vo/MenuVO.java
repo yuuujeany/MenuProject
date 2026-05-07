@@ -7,9 +7,9 @@ public class MenuVO {
     private String name;
     private int price;
     private String category;
-    private String isSoldOut; // boolean에서 String("판매중"/"품절")으로 변경됨을 가정 [cite: 32]
+    private boolean isSoldOut; // boolean에서 String("판매중"/"품절")으로 변경됨을 가정 [cite: 32]
 
-    public MenuVO(String menuId, String name, int price, String category, String isSoldOut) {
+    public MenuVO(String menuId, String name, int price, String category, boolean isSoldOut) {
         this.menuId = menuId;
         this.name = name;
         this.price = price;
@@ -17,17 +17,14 @@ public class MenuVO {
         this.isSoldOut = isSoldOut;
     }
 
-    // Getter & Setter 생략 (기존과 동일)
-
     @Override
     public String toString() {
-        return menuId + "," + name + "," + price + "," + category + "," + isSoldOut;
+        String status = isSoldOut ? "판매중" : "품절";
+        return menuId + "," + name + "," + price + "," + category + "," + status;
     }
 
-    // [변경됨] menuId만 비교하도록 수정: 이 부분이 모든 필드를 비교하면 searchMenu에서 객체를 찾지 못함
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MenuVO menuVO = (MenuVO) o;
         return Objects.equals(menuId, menuVO.menuId);
@@ -35,18 +32,46 @@ public class MenuVO {
 
     @Override
     public int hashCode() {
-        return Objects.hash(menuId);
+        return Objects.hashCode(menuId);
     }
 
-    public void setName(String s) {
+    public String getMenuId() {
+        return menuId;
     }
 
-    public void setPrice(int i) {
+    public void setMenuId(String menuId) {
+        this.menuId = menuId;
     }
 
-    public void setCategory(String s) {
+    public String getName() {
+        return name;
     }
 
-    public void setSoldOut(String s) {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public boolean isSoldOut() {
+        return isSoldOut;
+    }
+
+    public void setSoldOut(boolean soldOut) {
+        isSoldOut = soldOut;
     }
 }
