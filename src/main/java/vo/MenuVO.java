@@ -17,8 +17,10 @@ public class MenuVO {
         this.isSoldOut = isSoldOut;
     }
 
+
     @Override
     public String toString() {
+        // true일 때 "판매중", false일 때 "품절"로 출력되도록 수정
         String status = isSoldOut ? "판매중" : "품절";
         return menuId + "," + name + "," + price + "," + category + "," + status;
     }
