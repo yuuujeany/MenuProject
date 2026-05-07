@@ -22,11 +22,10 @@ public class AppendController implements Controller {
             int price =sc.nextInt(); sc.nextLine();
             System.out.println("등록할 카테고리 : ");
             String category = sc.nextLine();
-            System.out.println("등록할 판매 상태 (1.true / 2.false) : ");
+            System.out.println("등록할 판매 상태 (1.판매중 / 2.품절) : ");
             int choice = sc.nextInt();
             sc.nextLine();
-            boolean isSoldOut = (choice == 1);
-
+            String isSoldOut = (choice == 1) ? "판매중" : "품절";
             boolean flag = MenuService.getInstance().appendMenu(
                     new MenuVO(menuId, name, price, category, isSoldOut)
             );
