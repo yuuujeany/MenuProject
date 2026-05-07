@@ -3,10 +3,7 @@ package service;
 import exception.MenuException;
 import vo.MenuVO;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class MenuService {
@@ -42,6 +39,16 @@ public class MenuService {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void exportToCSV(){
+        try(FileWriter fw = new FileWriter("menu.csv");
+        PrintWriter pw = new PrintWriter(fw)) {
+            list.forEach(item ->pw.println(item));
+            System.out.println("전체메뉴정보 저장완료");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
