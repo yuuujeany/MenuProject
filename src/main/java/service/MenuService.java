@@ -68,4 +68,9 @@ public class MenuService {
     public boolean appendMenu(MenuVO menuVO) {
         return list.add(menuVO);
     }
+
+    public void deleteMenu(String menuId) throws MenuException {
+        if(!list.remove(new MenuVO(menuId,null,0,null)))
+            throw new MenuException("삭제할 메뉴 정보가 없습니다.");
+    }
 }
