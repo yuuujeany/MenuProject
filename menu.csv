@@ -1,11 +1,6 @@
-E01,빅불고기버거,6500,Main,true
-E02,치즈스틱,2500,Side,true
-E03,콜라,2000,Drink,false
-E04,아메리카노,3000,Drink,false
 E05,딸기조각케이크,5500,Dessert,false
 E06,불고기버거세트,9500,Set,false
 E07,상하이치킨버거,6000,Main,false
 E08,양념감자,2800,Side,false
 E09,카페라떼,3500,Drink,false
 E010,치킨버거세트,12000,Set,false
-E011,치즈스틱,5200,true,false
